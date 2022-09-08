@@ -1,0 +1,12 @@
+{
+  "headTitle": "Spot",
+  "user": {
+    "login": "Log in",
+    "register": "Sign up",
+    "email": "Email address",
+    "password": "Password",
+    "remember": "Remember me",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?"
+  }
+}

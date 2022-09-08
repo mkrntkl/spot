@@ -1,10 +1,10 @@
+import * as React from "react";
 import type { ActionArgs, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
-import * as React from "react";
+import { useTranslation } from "react-i18next";
 
 import { createUserSession, getUserId } from "~/session.server";
-
 import { createUser, getUserByEmail } from "~/models/user.server";
 import { safeRedirect, validateEmail } from "~/utils";
 
@@ -77,6 +77,8 @@ export default function Join() {
   const emailRef = React.useRef<HTMLInputElement>(null);
   const passwordRef = React.useRef<HTMLInputElement>(null);
 
+  const { t } = useTranslation();
+
   React.useEffect(() => {
     if (actionData?.errors?.email) {
       emailRef.current?.focus();
@@ -94,7 +96,7 @@ export default function Join() {
               htmlFor="email"
               className="block text-sm font-medium text-gray-700"
             >
-              Email address
+              {t("user.email")}
             </label>
             <div className="mt-1">
               <input
@@ -122,7 +124,7 @@ export default function Join() {
               htmlFor="password"
               className="block text-sm font-medium text-gray-700"
             >
-              Password
+              {t("user.password")}
             </label>
             <div className="mt-1">
               <input
@@ -148,11 +150,11 @@ export default function Join() {
             type="submit"
             className="w-full rounded bg-blue-500  py-2 px-4 text-white hover:bg-blue-600 focus:bg-blue-400"
           >
-            Create Account
+            {t("user.register")}
           </button>
           <div className="flex items-center justify-center">
             <div className="text-center text-sm text-gray-500">
-              Already have an account?{" "}
+              {t("user.haveAccount") + " "}
               <Link
                 className="text-blue-500 underline"
                 to={{
@@ -160,7 +162,7 @@ export default function Join() {
                   search: searchParams.toString(),
                 }}
               >
-                Log in
+                {t("user.login")}
               </Link>
             </div>
           </div>

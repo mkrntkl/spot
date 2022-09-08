@@ -1,0 +1,12 @@
+{
+  "headTitle": "Spotti",
+  "user": {
+    "login": "Kirjaudu sisään",
+    "register": "Rekisteröidy",
+    "email": "Sähköposti",
+    "password": "Salasana",
+    "remember": "Muista minut",
+    "noAccount": "Eikö sinulla ole tiliä?",
+    "haveAccount": "Onko sinulla jo tili?"
+  }
+}
