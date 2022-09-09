@@ -42,10 +42,6 @@ export default function App() {
   let { locale } = useLoaderData();
   let { i18n } = useTranslation();
 
-  // This hook will change the i18n instance language to the current locale
-  // detected by the loader, this way, when we do something to change the
-  // language, this locale will change and i18next will load the correct
-  // translation files
   useChangeLanguage(locale);
 
   return (
@@ -53,6 +49,11 @@ export default function App() {
       <head>
         <Meta />
         <Links />
+        <link
+          rel="preload"
+          as="fetch"
+          href={`/locales/${locale}/common.json`}
+        />
       </head>
       <body className="h-full">
         <Outlet />

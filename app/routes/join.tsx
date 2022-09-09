@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import type { ActionArgs, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
@@ -156,7 +156,7 @@ export default function Join() {
             <div className="text-center text-sm text-gray-500">
               {t("user.haveAccount") + " "}
               <Link
-                className="text-blue-500 underline"
+                className="text-blue-main underline hover:text-blue-dark"
                 to={{
                   pathname: "/login",
                   search: searchParams.toString(),
