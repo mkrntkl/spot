@@ -1,15 +1,10 @@
-import { useTranslation } from "react-i18next";
-import NavBar from "~/components/navBar";
+// import { useTranslation } from "react-i18next";
 
-import { useOptionalUser } from "~/utils";
+// import { useOptionalUser } from "~/utils";
 
 export default function Index() {
-  const { t } = useTranslation();
-  const user = useOptionalUser();
+  // const { t } = useTranslation();
+  // const user = useOptionalUser();
 
-  return (
-    <main className="">
-      <NavBar />
-    </main>
-  );
+  return <main className=""></main>;
 }

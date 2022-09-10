@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import i18next from "./i18next.server";
 import { getUser } from "./session.server";
 import tailwindStylesheetUrl from "./styles/tailwind.css";
+import NavBar from "./components/navBar";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
@@ -49,13 +50,14 @@ export default function App() {
       <head>
         <Meta />
         <Links />
-        <link
+        {/* <link //TODO: FIX preloading locales
           rel="preload"
           as="fetch"
           href={`/locales/${locale}/common.json`}
-        />
+        /> */}
       </head>
       <body className="h-full">
+        <NavBar />
         <Outlet />
         <ScrollRestoration />
         <Scripts />

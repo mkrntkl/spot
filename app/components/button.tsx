@@ -6,17 +6,22 @@ type ButtonProps = {
   to?: LinkProps["to"];
   // className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  variant?: "primary" | "secondary";
+  variant: "primary" | "secondary" | "icon";
 };
 
 const Button = (props: ButtonProps) => {
   const { children, to, onClick, variant } = props;
 
   let variantClass = "";
+  let labelClass = "text-sm";
 
   switch (variant) {
     case "secondary":
       variantClass = "bg-blue-main hover:bg-blue-dark text-white";
+      break;
+    case "icon":
+      variantClass = "border border-gray-300/50 bg-white hover:bg-blue-light ";
+      labelClass = "text-md";
       break;
     default:
       variantClass =
@@ -28,9 +33,7 @@ const Button = (props: ButtonProps) => {
     variantClass +
     " flex items-center justify-center rounded-md px-4 py-3" +
     " shadow-sm transition transition-all duration-300" +
-    " font-medium text-center ";
-
-  const labelClass = "text-sm";
+    " font-medium text-center max-h-9";
 
   return to ? (
     <Link to={to} onClick={onClick} className={className}>
