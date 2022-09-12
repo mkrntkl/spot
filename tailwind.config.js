@@ -12,6 +12,10 @@ module.exports = {
         "pink-light": "#ffa4a2",
         "pink-dark": "#af4448",
       },
+      transitionProperty: {
+        maxHeight: "max-height",
+        height: "height",
+      },
     },
   },
   plugins: [],
