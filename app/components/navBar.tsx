@@ -3,36 +3,50 @@ import { useTranslation } from "react-i18next";
 import { VscMenu, VscClose } from "react-icons/vsc";
 
 import { useOptionalUser } from "~/utils";
+import Collapse from "./collapse";
 import Button from "./button";
+import Menu from "./menu";
 
-type Props = {};
+type NavBarProps = {};
 
-const NavBar = (props: Props) => {
+const NavBar = (props: NavBarProps) => {
   const { t } = useTranslation();
   const user = useOptionalUser();
 
-  const [hidden, setHidden] = React.useState(false);
+  const [collapsed, setCollapsed] = React.useState(true);
 
   const toggleNavMenu = () => {
-    setHidden(!hidden);
+    setCollapsed(!collapsed);
   };
 
   return (
-    <div className={"l mx-auto" + hidden ? " shadow" : ""}>
+    <Collapse
+      className={"shadow duration-300 sm:max-h-16"}
+      collapsed={collapsed}
+    >
       <nav className="container mx-auto flex h-16 shrink-0 items-center justify-between">
-        <div className="ml-4 flex items-center space-x-4">
+        <div className="flex items-center sm:space-x-4">
           <img
-            className="inline min-w-[5rem] max-w-[5rem]"
+            className="ml-4 inline min-w-[5rem] max-w-[5rem]"
             src="/spot.svg"
             alt=""
           />
-          <div className="hidden sm:block">MENU</div>
+          <div className="hidden overflow-hidden sm:block">
+            <Menu variant="horizontal">
+              {/** //TODO: avoid repetition */}
+              <li>item</li>
+              <li>item</li>
+              <li>item</li>
+              <li>item</li>
+              <li>item</li>
+            </Menu>
+          </div>
         </div>
         <div className="flex-end flex">
           <div className="flex-end mr-4 flex w-max max-w-none space-x-4">
             {user ? (
               <Button variant="primary" to="/notes">
-                Logged in as {user.email}
+                {user.email}
               </Button>
             ) : (
               <>
@@ -46,7 +60,7 @@ const NavBar = (props: Props) => {
             )}
             <div className="sm:hidden">
               <Button variant="icon" onClick={toggleNavMenu}>
-                {!hidden ? (
+                {collapsed ? (
                   <VscMenu className="min-w-[24px]" />
                 ) : (
                   <VscClose className="text-2xl" />
@@ -56,7 +70,15 @@ const NavBar = (props: Props) => {
           </div>
         </div>
       </nav>
-    </div>
+      <Menu variant="vertical">
+        {/** //TODO: avoid repetition */}
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+      </Menu>
+    </Collapse>
   );
 };
 
