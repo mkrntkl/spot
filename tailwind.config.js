@@ -13,7 +13,6 @@ module.exports = {
         "pink-dark": "#af4448",
       },
       transitionProperty: {
-        maxHeight: "max-height",
         height: "height",
       },
     },

@@ -6,6 +6,7 @@ import { useOptionalUser } from "~/utils";
 import Collapse from "./collapse";
 import Button from "./button";
 import Menu from "./menu";
+import { Link } from "@remix-run/react";
 
 type NavBarProps = {};
 
@@ -19,26 +20,29 @@ const NavBar = (props: NavBarProps) => {
     setCollapsed(!collapsed);
   };
 
+  const menuItems = [
+    { label: "Profile", to: "/notes" },
+    { label: "Recipes", to: "/notes" },
+    { label: "Notes", to: "/notes" },
+  ];
+
   return (
     <Collapse
-      className={"shadow duration-300 sm:max-h-16"}
+      className={"max-h-[11.5rem] min-h-[4rem] shadow duration-300 sm:max-h-16"}
       collapsed={collapsed}
     >
       <nav className="container mx-auto flex h-16 shrink-0 items-center justify-between">
         <div className="flex items-center sm:space-x-4">
-          <img
-            className="ml-4 inline min-w-[5rem] max-w-[5rem]"
-            src="/spot.svg"
-            alt=""
-          />
+          <Link to={"/"} onClick={toggleNavMenu}>
+            <img
+              className="ml-4 inline min-w-[5rem] max-w-[5rem]"
+              src="/spot.svg"
+              alt=""
+            />
+          </Link>
           <div className="hidden overflow-hidden sm:block">
-            <Menu variant="horizontal">
-              {/** //TODO: avoid repetition */}
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
+            <Menu variant="horizontal" onSelect={toggleNavMenu}>
+              {menuItems}
             </Menu>
           </div>
         </div>
@@ -70,13 +74,8 @@ const NavBar = (props: NavBarProps) => {
           </div>
         </div>
       </nav>
-      <Menu variant="vertical">
-        {/** //TODO: avoid repetition */}
-        <li>item</li>
-        <li>item</li>
-        <li>item</li>
-        <li>item</li>
-        <li>item</li>
+      <Menu variant="vertical" className="ml-2 mr-2">
+        {menuItems}
       </Menu>
     </Collapse>
   );

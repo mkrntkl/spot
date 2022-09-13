@@ -17,22 +17,22 @@ const Button = (props: ButtonProps) => {
 
   switch (variant) {
     case "secondary":
-      variantClass = "bg-blue-main hover:bg-blue-dark text-white";
+      variantClass = "bg-blue-main hover:bg-blue-dark text-white shadow-sm";
       break;
     case "icon":
-      variantClass = "border border-gray-300/50 bg-white hover:bg-blue-light ";
+      variantClass = "bg-white hover:bg-blue-light ";
       labelClass = "text-md";
       break;
     default:
       variantClass =
-        "border border-gray-300/50 bg-white hover:bg-blue-light text-blue-dark";
+        "border border-gray-300/50 bg-white hover:bg-blue-light text-blue-dark shadow-sm";
       break;
   }
 
   const className =
     variantClass +
     " flex items-center justify-center rounded-md px-4 py-3" +
-    " shadow-sm transition transition-all duration-300" +
+    "  transition transition-all duration-300" +
     " font-medium text-center max-h-9";
 
   return to ? (
