@@ -21,8 +21,8 @@ const NavBar = (props: NavBarProps) => {
   };
 
   const menuItems = [
-    { label: "Profile", to: "/notes" },
-    { label: "Recipes", to: "/notes" },
+    { label: "Profile" },
+    { label: "Recipes", to: "/recipes" },
     { label: "Notes", to: "/notes" },
   ];
 
@@ -46,32 +46,30 @@ const NavBar = (props: NavBarProps) => {
             </Menu>
           </div>
         </div>
-        <div className="flex-end flex">
-          <div className="flex-end mr-4 flex w-max max-w-none space-x-4">
-            {user ? (
-              <Button variant="primary" to="/notes">
-                {user.email}
+        <div className="flex-end ml-4 mr-2 flex w-max max-w-none space-x-4 sm:mr-4">
+          {user ? (
+            <Button variant="primary" to="/notes">
+              {user.email}
+            </Button>
+          ) : (
+            <>
+              <Button to="/login" variant="primary">
+                {t("user.login")}
               </Button>
+              <Button to="/join" variant="secondary">
+                {t("user.register")}
+              </Button>
+            </>
+          )}
+        </div>
+        <div className="mr-4 sm:hidden">
+          <Button variant="icon" onClick={toggleNavMenu}>
+            {collapsed ? (
+              <VscMenu className="min-w-[24px]" />
             ) : (
-              <>
-                <Button to="/login" variant="primary">
-                  {t("user.login")}
-                </Button>
-                <Button to="/join" variant="secondary">
-                  {t("user.register")}
-                </Button>
-              </>
+              <VscClose className="text-2xl" />
             )}
-            <div className="sm:hidden">
-              <Button variant="icon" onClick={toggleNavMenu}>
-                {collapsed ? (
-                  <VscMenu className="min-w-[24px]" />
-                ) : (
-                  <VscClose className="text-2xl" />
-                )}
-              </Button>
-            </div>
-          </div>
+          </Button>
         </div>
       </nav>
       <Menu variant="vertical" className="ml-2 mr-2">

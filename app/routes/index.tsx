@@ -7,5 +7,5 @@ export default function Index() {
   // const { t } = useTranslation();
   // const user = useOptionalUser();
 
-  return <main></main>;
+  return <main className="flex"></main>;
 }

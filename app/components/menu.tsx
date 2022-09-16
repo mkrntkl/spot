@@ -28,7 +28,7 @@ const Menu = (props: MenuProps) => {
     classArray.push(className);
   }
 
-  const menuItemClass = "hover:bg-gray-50";
+  const menuItemClass = "hover:bg-gray-50 sm:rounded-md";
 
   const handleClick = () => {
     if (onSelect) onSelect();
@@ -38,28 +38,26 @@ const Menu = (props: MenuProps) => {
     <ul id="list" className={classArray.join(" ")}>
       {!Array.isArray(children)
         ? children
-        : children.map((el, index) =>
-            el.to ? (
-              <li key={index} className={menuItemClass}>
+        : children.map((el, index) => (
+            <li key={index} className={menuItemClass}>
+              {el.to ? (
                 <Link
-                  className="block h-full w-full indent-2 leading-9 hover:text-blue-main"
+                  className="block h-full w-full leading-9 hover:text-blue-main"
                   to={el.to}
                   onClick={handleClick}
                 >
-                  {el.label}
+                  <div className="ml-2 mr-2">{el.label}</div>
                 </Link>
-              </li>
-            ) : (
-              <li key={index} className={menuItemClass}>
+              ) : (
                 <button
-                  className="h-full w-full text-left indent-2 leading-9 hover:text-blue-main"
+                  className="h-full w-full text-left leading-9 hover:text-blue-main"
                   onClick={handleClick}
                 >
-                  {el.label}
+                  <div className="ml-2 mr-2">{el.label}</div>
                 </button>
-              </li>
-            )
-          )}
+              )}
+            </li>
+          ))}
     </ul>
   );
 };
