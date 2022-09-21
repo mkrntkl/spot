@@ -16,6 +16,7 @@ model User {
 
   password Password?
   notes    Note[]
+  recipes  Recipe[]
 }
 
 model Password {
@@ -35,4 +36,34 @@ model Note {
 
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId String
+}
+
+model Recipe {
+  id   String @id @default(cuid())
+  name String
+  body String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  recipeSteps RecipeStep[]
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String
+}
+
+model RecipeStep {
+  step  Int
+  title String
+  body  String
+
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  recipeId String
+
+  @@id([step, recipeId])
+}
+
+model Ingredient {
+  id   String @id @default(cuid())
+  name String
 }

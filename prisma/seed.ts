@@ -24,20 +24,36 @@ async function seed() {
     },
   });
 
-  await prisma.note.create({
+  const recipe = await prisma.recipe.create({
     data: {
-      title: "My first note",
+      name: "Neapolitan pizza",
       body: "Hello, world!",
       userId: user.id,
     },
   });
 
-  await prisma.note.create({
-    data: {
-      title: "My second note",
-      body: "Hello, world!",
-      userId: user.id,
-    },
+  await prisma.recipeStep.createMany({
+    data: [
+      {
+        step: 1,
+        title: "Dough",
+        body: "Make dough",
+        recipeId: recipe.id,
+      },
+      {
+        step: 2,
+        title: "Sauce",
+        body: "Make sauce",
+        recipeId: recipe.id,
+      },
+      {
+        step: 3,
+        title: "Toppings",
+        body: "Put on toppings",
+        recipeId: recipe.id,
+      },
+    ],
+    skipDuplicates: true,
   });
 
   console.log(`Database has been seeded. 🌱`);

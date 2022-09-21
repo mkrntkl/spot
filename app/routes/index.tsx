@@ -3,9 +3,11 @@ import React from "react";
 
 // import { useOptionalUser } from "~/utils";
 
-export default function Index() {
+const Index = () => {
   // const { t } = useTranslation();
   // const user = useOptionalUser();
 
   return <main className="flex"></main>;
-}
+};
+
+export default Index;
