@@ -74,7 +74,7 @@ const NavBar = (props: NavBarProps) => {
           </div>
         </div>
       </nav>
-      <Menu variant="vertical" className="ml-2 mr-2">
+      <Menu variant="vertical" className="ml-2 mr-2 sm:invisible">
         {menuItems}
       </Menu>
     </Collapse>
