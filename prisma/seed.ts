@@ -66,6 +66,7 @@ async function seed() {
       userId: user.id,
       coverImage:
         "https://www.friendsandbrgrs.fi/uploads/2021/09/5ae9afd9-c_o-brgr_whitebg.jpg",
+      timeToMake: 10,
     },
   });
 
