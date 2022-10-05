@@ -10,8 +10,8 @@ const Collapse = (props: CollapseProps) => {
   const { children, collapsed, className } = props;
 
   const collapsedClass = [
-    "overflow-hidden transition-height",
-    collapsed ? "h-0" : "h-full",
+    "overflow-hidden transition-maxHeight",
+    collapsed ? "max-h-0" : "max-h-screen",
     className ?? "",
   ].join(" ");
 

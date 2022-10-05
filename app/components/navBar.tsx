@@ -27,7 +27,7 @@ const NavBar = (props: NavBarProps) => {
 
   return (
     <Collapse
-      className={"max-h-[11.5rem] min-h-[4rem] shadow duration-300 sm:max-h-16"}
+      className={"min-h-[4rem] shadow duration-300"}
       collapsed={collapsed}
     >
       <nav className="container mx-auto flex h-16 shrink-0 items-center justify-between">
@@ -71,7 +71,10 @@ const NavBar = (props: NavBarProps) => {
           </Button>
         </div>
       </nav>
-      <Menu variant="vertical" className="ml-2 mr-2 sm:invisible">
+      <Menu
+        variant="vertical"
+        className={"m-2 sm:hidden " + (collapsed ? "hidden" : "")}
+      >
         {menuItems}
       </Menu>
     </Collapse>
