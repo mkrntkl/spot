@@ -7,6 +7,7 @@ export function getRecipe({ id }: Pick<Recipe, "id">) {
       id: true,
       name: true,
       body: true,
+      coverImage: true,
       recipeSteps: true,
       createdAt: true,
       updatedAt: true,
@@ -20,6 +21,7 @@ export function getRecipeList({ userId }: { userId?: User["id"] } = {}) {
     select: {
       id: true,
       name: true,
+      coverImage: true,
       recipeSteps: true,
     },
     where: {},

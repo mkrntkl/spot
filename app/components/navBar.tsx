@@ -21,9 +21,8 @@ const NavBar = (props: NavBarProps) => {
   };
 
   const menuItems = [
-    { label: "Profile" },
-    { label: "Recipes", to: "/recipes" },
-    { label: "Notes", to: "/notes" },
+    { label: "profile.profile" },
+    { label: "recipe.recipes", to: "/recipes" },
   ];
 
   return (

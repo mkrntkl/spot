@@ -8,5 +8,13 @@
     "remember": "Remember me",
     "noAccount": "Don't have an account?",
     "haveAccount": "Already have an account?"
+  },
+  "recipe": {
+    "recipes": "Recipes",
+    "ingredients": "Ingredients",
+    "recipesNotFound": "No recipes found"
+  },
+  "profile": {
+    "profile": "Profile"
   }
 }

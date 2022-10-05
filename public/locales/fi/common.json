@@ -8,5 +8,13 @@
     "remember": "Muista minut",
     "noAccount": "Eikö sinulla ole tiliä?",
     "haveAccount": "Onko sinulla jo tili?"
+  },
+  "recipe": {
+    "recipes": "Reseptit",
+    "ingredients": "Ainekset",
+    "recipesNotFound": "Yhtään reseptiä ei löytynyt"
+  },
+  "profile": {
+    "profile": "Omat tiedot"
   }
 }

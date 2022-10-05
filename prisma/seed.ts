@@ -29,6 +29,9 @@ async function seed() {
       name: "Neapolitan pizza",
       body: "Hello, world!",
       userId: user.id,
+      coverImage:
+        "https://thepizzashop.ca/wp-content/uploads/2021/10/pizza-napolitaine.jpg",
+      timeToMake: 10,
     },
   });
 
@@ -51,6 +54,40 @@ async function seed() {
         title: "Toppings",
         body: "Put on toppings",
         recipeId: recipe.id,
+      },
+    ],
+    skipDuplicates: true,
+  });
+
+  const recipe2 = await prisma.recipe.create({
+    data: {
+      name: "Classic burger",
+      body: "Hello, world 2!",
+      userId: user.id,
+      coverImage:
+        "https://www.friendsandbrgrs.fi/uploads/2021/09/5ae9afd9-c_o-brgr_whitebg.jpg",
+    },
+  });
+
+  await prisma.recipeStep.createMany({
+    data: [
+      {
+        step: 1,
+        title: "Buns",
+        body: "Make the buns",
+        recipeId: recipe2.id,
+      },
+      {
+        step: 2,
+        title: "Beef patty",
+        body: "Make the patty",
+        recipeId: recipe2.id,
+      },
+      {
+        step: 3,
+        title: "Insides",
+        body: "Eww",
+        recipeId: recipe2.id,
       },
     ],
     skipDuplicates: true,

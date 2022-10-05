@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "@remix-run/react";
+import { useTranslation } from "react-i18next";
 
 type MenuProps = {
   children?:
     | React.ReactNode
     | {
-        label: React.ReactNode;
+        label: string;
         to?: string;
         onClick?: React.MouseEventHandler<HTMLElement>;
       }[];
@@ -16,6 +17,9 @@ type MenuProps = {
 
 const Menu = (props: MenuProps) => {
   const { children, variant = "vertical", className, onSelect } = props;
+
+  const { t } = useTranslation();
+
   let classArray = [];
 
   if (variant === "horizontal") {
@@ -46,14 +50,14 @@ const Menu = (props: MenuProps) => {
                   to={el.to}
                   onClick={handleClick}
                 >
-                  <div className="ml-2 mr-2">{el.label}</div>
+                  <div className="ml-2 mr-2">{t(el.label)}</div>
                 </Link>
               ) : (
                 <button
                   className="h-full w-full text-left leading-9 hover:text-blue-main"
                   onClick={handleClick}
                 >
-                  <div className="ml-2 mr-2">{el.label}</div>
+                  <div className="ml-2 mr-2">{t(el.label)}</div>
                 </button>
               )}
             </li>
